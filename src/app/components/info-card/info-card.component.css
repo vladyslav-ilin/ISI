@@ -1,0 +1,109 @@
+*,*:after,*:before {
+  box-sizing: border-box;
+}
+
+.card__wrapper {
+  margin: 80px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 60px 3px rgba(0,0,0,0.45);
+  border-collapse: separate;
+  padding: 25px;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.card__label {
+  margin-bottom: 5px;
+}
+
+.card__input {
+  width: 100%;
+  border-radius: 10px;
+  border-color: transparent;
+  padding: 10px;
+  background: rgba(0,0,0,.05);
+  outline: none;
+}
+
+.card__select {
+  width: 100%;
+}
+
+.card__buttons-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__button {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border-color: transparent;
+  border-radius: 5px;
+  width: 65px;
+}
+
+.card__button-close {
+  line-height: 25px;
+  font-weight: bold;
+  width: 25px;
+}
+
+.card__button-delete,
+.card__button-create,
+.card__button-save{
+  color: #fff;
+  padding: 5px 10px;
+  background: #ef5c5c;
+}
+
+.card__button-save {
+  background: #7676de;
+}
+
+.card__button-save:disabled {
+  opacity: .3;
+}
+
+.card__create {
+  display: flex;
+  justify-content: center;
+}
+
+.card__button-create {
+  background: #7676de;
+}
+
+.card__field-type {
+  position: relative;
+}
+
+.card__field-type::after {
+  content: '@';
+  color: #7676de;
+  opacity: .7;
+  font-size: 20px;
+  position: absolute;
+  top: 31px;
+  left: 10px;
+}
+
+.card__select {
+  padding-left: 30px;
+}
+
+.card .ng-touched.ng-invalid:not(form) {
+  border: 1px solid red;
+}

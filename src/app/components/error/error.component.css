@@ -1,0 +1,41 @@
+.error {
+
+}
+
+.error__container {
+  background: url("../../../assets/background.jpg");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.error__title {
+  font-size: 70px;
+}
+
+.error__wrapper {
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.error__status {
+  margin-right: 25px;
+}
+
+.error__button {
+  font-size: 25px;
+  color: #fff;
+  background: #7676de;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  border-color: transparent;
+  padding: 5px 10px;
+}

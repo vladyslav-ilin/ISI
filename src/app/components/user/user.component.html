@@ -1,0 +1,29 @@
+<div class="user">
+  <div class="user__container">
+    <div class="user__wrapper">
+      <button class="user__button" (click)="createUser()">Create User</button>
+      <table class="user__table">
+        <tr class="user__header">
+          <th *ngFor="let item of getUserTitle$ | async"
+              class="user__header-title">
+            {{item.title | uppercase}}
+          </th>
+        </tr>
+
+        <tr *ngFor="let user of users$ | async"
+            (click)="onSelected(user.id)"
+            [ngClass]="{user__active: user.id === (selectedUser$ | async)?.id}"
+            class="user__body">
+          <td class="user__body-list">{{user.userName}}</td>
+          <td class="user__body-list">{{user.firstName}}</td>
+          <td class="user__body-list">{{user.lastName}}</td>
+          <td class="user__body-list">{{user.email}}</td>
+          <td class="user__body-list">{{user.type}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <app-info-card class="user__card" *ngIf="isOpen" [mode]="mode" (onClose)="onClose()"></app-info-card>
+  </div>
+
+</div>

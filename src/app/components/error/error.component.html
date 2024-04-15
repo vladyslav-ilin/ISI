@@ -1,0 +1,11 @@
+<!--<div class="error" *ngIf="errorStatus">-->
+<div class="error">
+  <div class="error__container">
+    <h1 class="error__title">Oops!</h1>
+    <div class="error__wrapper">
+      <div class="error__status">{{errorStatus}}</div>
+      <div class="error__message">{{errorMessage}}</div>
+    </div>
+    <button class="error__button" routerLink=''>Go To Homepage</button>
+  </div>
+</div>

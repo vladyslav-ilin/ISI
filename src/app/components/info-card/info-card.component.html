@@ -1,0 +1,90 @@
+<div class="card">
+  <div class="card__wrapper">
+    <div class="card__header">
+
+      <h3 class="card__title"
+          *ngIf="selectedUser$ | async as user"
+      >{{user.firstName}} {{user.lastName}}</h3>
+
+      <h3 class="card__title"
+          *ngIf="!(selectedUser$ | async)"
+      >Create new user</h3>
+
+      <button class=" card__button card__button-close"
+              (click)="onClose.emit()">X</button>
+    </div>
+
+    <form class="card__form" [formGroup]="userForm">
+      <div class="card__field card__field-username">
+        <label class="card__label" for="user-username">User Name</label>
+        <input class="card__input" id="user-username"
+               type="text"
+               formControlName="userName">
+      </div>
+
+      <div class="card__field card__field-firstName">
+        <label class="card__label" for="user-firstName">First Name</label>
+        <input class="card__input" id="user-firstName"
+               type="text"
+               formControlName="firstName">
+      </div>
+
+      <div class="card__field card__field-lastName">
+        <label class="card__label" for="user-lastName">Last Name</label>
+        <input class="card__input" id="user-lastName"
+               type="text"
+               formControlName="lastName">
+      </div>
+
+      <div class="card__field card__field-email">
+        <label class="card__label" for="user-email">Email</label>
+        <input class="card__input" id="user-email"
+               type="email"
+               formControlName="email">
+      </div>
+
+      <div class="card__field card__field-type" *ngIf="userType$ | async as userType">
+        <label class="card__label" for="user-password">Type</label>
+        <select class="card__input card__select" formControlName="type">
+          <option class="card__option" *ngFor="let type of userType" [ngValue]="type.name">
+            {{ type.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="card__field card__field-password">
+        <label class="card__label" for="user-password">Password</label>
+        <input class="card__input" id="user-password"
+               type="password"
+               formControlName="password">
+      </div>
+
+      <div class="card__field card__field-repeatPassword">
+        <label class="card__label" for="user-repeatPassword">Repeat Password</label>
+        <input class="card__input" id="user-repeatPassword"
+               type="password"
+               formControlName="repeatPassword">
+      </div>
+
+      <div class="card__buttons-edit" *ngIf="mode !== 'create'">
+        <button class="card__button card__button-delete"
+                (click)="deleteUser(userForm.value.id)">Delete</button>
+        <button class="card__button card__button-save"
+                (click)="saveUser(userForm.value)"
+                [disabled]="!userForm.valid"
+        >Save</button>
+      </div>
+
+
+      <div class="card__create">
+        <button class="card__button card__button-create "
+                (click)="createUser(userForm.value)"
+                *ngIf="mode === 'create'"
+                [disabled]="!userForm.valid"
+        >Create </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
